@@ -24,290 +24,278 @@
     
     <!-- Minification du CSS et optimisation des images -->
     <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9f9;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* En-tête */
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background-color: #eaf2f8;
-        color: #000;
-        width: 100%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .logo img {
-        width: 130px;
-        max-width: 100%; /* Pour assurer une bonne réactivité */
-        height: auto;
-    }
-
-    .nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-
-    .nav ul li {
-        margin-left: 20px;
-    }
-
-    .nav ul li a {
-        color: #000;
-        text-decoration: none;
-        font-weight: 600;
-    }
-
-    .nav ul li a:hover {
-        text-decoration: underline;
-    }
-
-    /* Bannière */
-    .banner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 450px;
-        width: 100%;
-        background: url('banner-image.jpg') no-repeat center center;
-        background-size: cover;
-        color: #fff;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .banner-content h1 {
-        font-size: 3em;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Bouton d'appel à l'action */
-    .cta-btn {
-        background-color: #e62705; /* Couleur de fond principale */
-        color: #fff; /* Couleur du texte */
-        font-size: 1.4em; /* Taille de police par défaut */
-        padding: 15px 35px; /* Ajustement du padding */
-        border-radius: 25px; /* Rayon de bordure pour un look moderne */
-        box-shadow: 0 4px 15px rgba(0, 184, 148, 0.5); /* Ombre pour l'effet 3D */
-        text-transform: uppercase; /* Texte en majuscules */
-        transition: all 0.3s ease; /* Animation lors du hover */
-        text-decoration: none; /* Supprime le soulignement */
-    }
-
-    /* Effet au survol */
-    .cta-btn:hover {
-        background-color: #3d8777; /* Couleur de fond au survol */
-        transform: translateY(-3px); /* Légère élévation au survol */
-    }
-
-    /* Services */
-    .services {
-        padding: 80px 20px;
-        text-align: center;
-        background-color: #fff;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .services h2 {
-        font-size: 2.8em;
-        margin-bottom: 40px;
-        color: #1e3a46;
-    }
-
-    .service-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        justify-items: center;
-        align-items: stretch;
-    }
-
-    .service-item {
-        background-color: #ffffff;
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
-
-    .service-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
-    }
-
-    .service-item i {
-        font-size: 3em;
-        margin-bottom: 15px;
-        color: #2b6777;
-    }
-
-    .service-item h3 {
-        color: #2b6777;
-        margin-bottom: 15px;
-        font-size: 1.8em;
-    }
-
-    .service-item p {
-        color: #555;
-        font-size: 1.2em;
-        margin-bottom: 20px;
-    }
-
-    /* Contact */
-    .contact {
-        padding: 60px 20px;
-        background-color: #f1f1f1;
-        text-align: center;
-    }
-
-    .contact h2 {
-        font-size: 2.5em;
-        margin-bottom: 30px;
-        color: #1e3a46;
-    }
-
-    .contact-form {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        width: 100%;
-        padding: 15px;
-        margin: 10px 0;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 16px;
-        box-sizing: border-box;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-        outline: none;
-        border-color: #52ab98;
-        box-shadow: 0px 0px 5px rgba(82, 171, 152, 0.5);
-    }
-
-    .contact-form button {
-        padding: 15px;
-        background-color: #52ab98;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        width: 100%;
-    }
-
-    .contact-form button:hover {
-        background-color: #3d8777;
-        transform: translateY(-3px);
-    }
-
-    /* Footer */
-    .footer {
-        background-color: #2b6777;
-        padding: 30px;
-        text-align: center;
-        color: white;
-        width: 100%;
-    }
-
-    .footer a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .footer a:hover {
-        text-decoration: underline;
-    }
-
-    /* Styles réactifs */
-    @media (max-width: 1024px) {
-        .service-list {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 768px) {
-        .header {
-            flex-direction: column;
-            padding: 10px 15px;
-        }
-
-        .banner-content h1 {
-            font-size: 2.5em;
-        }
-
-        .service-list {
-            grid-template-columns: 1fr;
-        }
-
-        .contact-form {
-            width: 90%;
-        }
-
-        .cta-btn {
-            font-size: 1.2em; /* Ajustement de la taille de police */
-            padding: 12px 30px; /* Réduction du padding pour le petit écran */
-            border-radius: 20px; /* Rayon de bordure réduit pour les petits écrans */
-        }
-    }
-
-    @media (max-width: 480px) {
-        .logo img {
-            width: 100px;
-        }
-
-        .header {
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
             flex-direction: column;
             align-items: center;
         }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #eaf2f8;
+            color: #000;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 130px;
+            max-width: 100%; /* Pour assurer une bonne réactivité */
+            height: auto;
+        }
+
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav ul li {
+            margin-left: 20px;
+        }
+
+        .nav ul li a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bannière */
+        .banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 450px;
+            width: 100%;
+            background: url('banner-image.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
         .banner-content h1 {
-            font-size: 2em;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .cta-btn {
-            font-size: 14px;
-            padding: 10px 25px;
+            padding: 15px 40px;
+            background-color: #e62705;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #3d8777;
+            transform: translateY(-3px);
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            color: #1e3a46;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-items: center;
+            align-items: stretch;
+        }
+
+        .service-item {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item i {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #2b6777;
+        }
+
+        .service-item h3 {
+            color: #2b6777;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .service-item p {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 60px 20px;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #1e3a46;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-form input,
         .contact-form textarea {
-            font-size: 14px;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #52ab98;
+            box-shadow: 0px 0px 5px rgba(82, 171, 152, 0.5);
         }
 
         .contact-form button {
-            font-size: 14px;
-            padding: 12px;
+            padding: 15px;
+            background-color: #52ab98;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%;
         }
-    }
-</style>
+
+        .contact-form button:hover {
+            background-color: #3d8777;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2b6777;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .service-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 10px 15px;
+            }
+
+            .banner-content h1 {
+                font-size: 2.5em;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                width: 100px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .banner-content h1 {
+                font-size: 2em;
+            }
+
+            .cta-btn {
+                font-size: 14px;
+                padding: 10px 25px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 14px;
+            }
+
+            .contact-form button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
    
 </head>
 <body>
