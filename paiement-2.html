@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement de Prêt - Frais de Dossier</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Style global */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3a46 0%, #28a745 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Utiliser min-height pour prendre en charge le contenu dynamique */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px; /* Ajustement pour espace */
+        }
+
+        .logo img {
+            width: 250px; /* Taille ajustée pour réactivité */
+            max-width: 100%; /* S'assure que l'image est réactive */
+            height: auto; /* Conserve les proportions */
+        }
+
+        /* Conteneur principal */
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px; /* Largeur maximale pour les écrans larges */
+            padding: 40px;
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            text-align: center;
+            margin: 0 20px; /* Ajout d'une marge pour les petits écrans */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.2em; /* Ajustement de la taille pour les petits écrans */
+            color: #1d1f21;
+        }
+
+        .note {
+            background-color: #e7f3fe;
+            color: #31708f;
+            padding: 15px;
+            border-left: 5px solid #31708f;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: left; /* Aligne le texte à gauche */
+        }
+
+        .result {
+            font-size: 1.5em; /* Augmente la taille du texte pour la visibilité */
+            margin: 20px 0;
+        }
+
+        #paypal-button-container {
+            margin-top: 20px;
+        }
+
+        /* Footer (Copyright) */
+        footer {
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em; /* Réduction de la taille du titre pour les petits écrans */
+            }
+
+            .container {
+                padding: 30px; /* Réduction du padding */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em; /* Réduction supplémentaire de la taille du titre */
+            }
+
+            .note, .result {
+                font-size: 1em; /* Ajustement de la taille du texte */
+            }
+
+            .logo img {
+                width: 200px; /* Ajustement de la taille du logo pour les petits écrans */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <img src="logo.png" alt="Logo de l'entreprise">
+    </div>
+    <h1>Paiement des frais de dossier</h1>
+    <div class="note">
+        **Veuillez noter** : Un montant de **1%** du montant total du prêt demandé sera débité comme frais de dossier et de liaison au service de subvention de la Croix-Rouge.
+    </div>
+
+    <div class="result">
+        Montant à payer : <span id="paymentAmount">0</span> €
+    </div>
+
+    <!-- Bouton de paiement PayPal -->
+    <div id="paypal-button-container"></div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Financement Humanitaire. Tous droits réservés.</p>
+</footer>
+
+<script>
+    // Récupération des paramètres de l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const loanAmount = urlParams.get('loanAmount');
+    const paymentAmount = (loanAmount * 0.01).toFixed(2); // Calcul des frais de dossier (1%)
+
+    // Affichage du montant à payer
+    document.getElementById('paymentAmount').textContent = paymentAmount;
+
+    
+</script>
+
+</body>
+</html>

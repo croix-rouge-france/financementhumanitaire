@@ -1,0 +1,208 @@
+/* Style global */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+    color: #fff; /* Changement de la couleur de la police en blanc */
+}
+
+/* Header et navigation */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #007BFF;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    width: 150px;
+}
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav ul li {
+    margin-left: 20px;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Bannière */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    background: url('banner.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.banner-content {
+    text-align: center;
+    max-width: 600px; /* Centrer et limiter la largeur du texte */
+}
+
+.banner-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.banner-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.cta-btn:hover {
+    background-color: #218838;
+}
+
+/* Services */
+.services {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #0056b3; /* Ajout de fond pour contraste */
+}
+
+.services h2 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.service-item {
+    background-color: #ffffff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/* Contact */
+.contact {
+    padding: 40px 20px;
+    background-color: #007BFF;
+    color: white;
+}
+
+.contact h2 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto; /* Centrage du formulaire */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.contact-form button {
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.contact-form button:hover {
+    background-color: #218838;
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    color: #6c757d;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 90%;
+    max-width: 300px; /* Limite la taille sur les écrans plus grands */
+    opacity: 1.5;
+}
+
+/* Styles responsives */
+@media (max-width: 768px) {
+    .banner-content h1 {
+        font-size: 2.5em;
+    }
+    .banner-content p {
+        font-size: 1.2em;
+    }
+    .cta-btn {
+        font-size: 14px;
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 2em;
+    }
+    .banner-content p {
+        font-size: 1em;
+    }
+    .cta-btn {
+        font-size: 12px;
+        padding: 8px 20px;
+    }
+}

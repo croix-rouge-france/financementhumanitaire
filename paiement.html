@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financement - Paiement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="paiement-style.css">
+</head>
+<body>
+    <!-- Conteneur principal de la page de paiement -->
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo entreprise">
+        </div>
+        <h1>Finalisez votre demande de financement</h1>
+        <p>Veuillez procéder au paiement pour confirmer votre demande.</p>
+
+        <!-- Section du paiement PayPal -->
+        <div id="paypal-button-container"></div>
+
+        <!-- Bouton de retour -->
+        <div class="return">
+            <a href="formulaire.html">Retour à la demande</a>
+        </div>
+    </div>
+
+    <!-- Script PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+    <script src="paiement-script.js"></script>
+</body>
+</html>

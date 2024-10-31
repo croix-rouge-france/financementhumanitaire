@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Obtenez les meilleures subventions de l'Europe.">
+    <meta name="keywords" content="subvention, prêt, financement, crédit, prêt immobilier, prêt personnel">
+    <meta name="author" content="Votre entreprise de financement">
+    <meta property="og:title" content="Meilleurs prêts et subventions">
+    <meta property="og:description" content="Solutions de financement adaptées à vos projets avec des taux avantageux.">
+    <meta property="og:image" content="URL_image_promos.jpg">
+    <meta property="og:url" content="https://www.votre-site.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Meilleurs Prêts et Financements | Financement Plus</title>
+    
+    <!-- Préchargement de la police -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    
+    <!-- Minification du CSS et optimisation des images -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #eaf2f8;
+            color: #000;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 130px;
+            max-width: 100%; /* Pour assurer une bonne réactivité */
+            height: auto;
+        }
+
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav ul li {
+            margin-left: 20px;
+        }
+
+        .nav ul li a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bannière */
+        .banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 450px;
+            width: 100%;
+            background: url('votre-image-banniere.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .banner-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            background-color: #e62705;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #3d8777;
+            transform: translateY(-3px);
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            color: #1e3a46;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-items: center;
+            align-items: stretch;
+        }
+
+        .service-item {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item i {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #2b6777;
+        }
+
+        .service-item h3 {
+            color: #2b6777;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .service-item p {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 60px 20px;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #1e3a46;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #52ab98;
+            box-shadow: 0px 0px 5px rgba(82, 171, 152, 0.5);
+        }
+
+        .contact-form button {
+            padding: 15px;
+            background-color: #52ab98;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: #3d8777;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2b6777;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .service-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 10px 15px;
+            }
+
+            .banner-content h1 {
+                font-size: 2.5em;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                width: 100px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .banner-content h1 {
+                font-size: 2em;
+            }
+
+            .cta-btn {
+                font-size: 14px;
+                padding: 10px 25px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 14px;
+            }
+
+            .contact-form button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête avec logo et navigation -->
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo entreprise">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="formulaire.html">Demande de financement</a></li>
+            </ul>
+        </nav>
+    </header>
+     <!-- Bannière -->
+     <section id="accueil" class="banner">
+        <div class="banner-content">
+            <h1>Obtenez le financement dont vous avez besoin</h1>
+            <a href="formulaire.html" class="cta-btn">Faire une demande de financement</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <h2>Nos Services</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <i class="fas fa-piggy-bank"></i>
+                <h3>Prêts personnels</h3>
+                <p>Des prêts flexibles pour vos besoins personnels.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-home"></i>
+                <h3>Financement immobilier</h3>
+                <p>Obtenez un financement pour l'achat de votre maison ou appartement.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Rachat de crédit</h3>
+                <p>Réduisez vos mensualités en regroupant vos crédits.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2>Contactez-nous</h2>
+        <form action="contact.php" method="post" class="contact-form">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <p>&copy; 2024 Financement Humanitaire. Tous droits réservés.</p>
+        <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
+    </footer>
+</body>
+</html>

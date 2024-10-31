@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de subvention pour projet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <style>
+        /* Style global modernisé */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3a46 0%, #28a745 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            width: 90%; /* Ajustement pour s'adapter à de petits écrans */
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo img {
+            width: 120px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5em; /* Réduire légèrement pour une meilleure adaptabilité */
+            margin-bottom: 20px;
+            color: #2b6777;
+            font-weight: 600;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: 600;
+            color: #1e3a46;
+            font-size: 1.1em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #28a745;
+            outline: none;
+            background-color: #fff;
+            box-shadow: 0px 0px 8px rgba(40, 167, 69, 0.3);
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur des écrans étroits */
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            flex: 1; /* Prend toute la largeur disponible */
+            margin: 5px; /* Espacement entre les boutons */
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .container {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            button {
+                width: 100%; /* Les boutons occupent toute la largeur */
+            }
+
+            .buttons {
+                flex-direction: column; /* Les boutons passent en colonne */
+                gap: 10px; /* Espacement entre les boutons */
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            text-align: center;
+            background-color: #e6f7f1;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-message h2 {
+            color: #28a745;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        .success-message button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .success-message button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo organisation">
+        </div>
+        <h1>Demande de subvention</h1>
+
+        <form id="subventionForm">
+            <!-- Étape 1 -->
+            <div class="step active" id="step1">
+                <label for="projectType">Quel type de projet souhaitez-vous réaliser avec la subvention ?</label>
+                <select id="projectType" name="projectType" required>
+                    <option value="" disabled selected>-- Sélectionnez votre type de projet --</option>
+                    <option value="social">Projet social</option>
+                    <option value="environnemental">Projet environnemental</option>
+                    <option value="educatif">Projet éducatif</option>
+                    <option value="autre">Autre</option>
+                </select>
+                <button type="button" class="next-btn">Suivant</button>
+            </div>
+
+            <!-- Étape 2 -->
+            <div class="step" id="step2">
+                <label for="description">Décrivez votre projet</label>
+                <textarea id="description" name="description" rows="5" placeholder="Expliquez en quoi consiste votre projet" required></textarea>
+                <button type="button" class="next-btn">Suivant</button>
+            </div>
+
+            <!-- Étape 3 -->
+            <div class="step" id="step3">
+                <label for="justification">Pourquoi avez-vous besoin de cette subvention ?</label>
+                <textarea id="justification" name="justification" rows="4" placeholder="Expliquez pourquoi votre projet nécessite une subvention" required></textarea>
+                <div class="buttons">
+                    <button type="button" class="prev-btn">Précédent</button>
+                    <button type="button" class="next-btn">Suivant</button>
+                </div>
+            </div>
+
+            <!-- Étape 4 -->
+            <div class="step" id="step4">
+                <label for="impact">Quel impact aura votre projet ?</label>
+                <textarea id="impact" name="impact" rows="4" placeholder="Décrivez l'impact social, environnemental ou autre de votre projet" required></textarea>
+                <div class="buttons">
+                    <button type="button" class="prev-btn">Précédent</button>
+                    <button type="button" class="next-btn">Suivant</button>
+                </div>
+            </div>
+
+            <!-- Étape 5 -->
+            <div class="step" id="step5">
+                <label for="totalBudget">Quel est le budget total de votre projet ?</label>
+                <input type="number" id="totalBudget" name="totalBudget" placeholder="Budget total en euros" required>
+                <label for="subventionAmount">Quel montant de subvention souhaitez-vous ?</label>
+                <input type="number" id="subventionAmount" name="subventionAmount" placeholder="Montant demandé en euros" required>
+                <label for="personalContribution">Quel est votre apport personnel (si applicable) ?</label>
+                <input type="number" id="personalContribution" name="personalContribution" placeholder="Montant en euros" required>
+                <div class="buttons">
+                    <button type="button" class="prev-btn">Précédent</button>
+                    <button type="submit">Soumettre la demande</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Message de succès -->
+        <div id="successMessage" class="success-message hidden">
+            <h2>Félicitations, votre demande a été soumise avec succès !</h2>
+            <p>Merci d'avoir complété votre demande de subvention. Vous pouvez maintenant soumettre vos documents supplémentaires.</p>
+            <button id="submitDocumentsButton">Soumettre des documents</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step');
+            const nextButtons = document.querySelectorAll('.next-btn');
+            const prevButtons = document.querySelectorAll('.prev-btn');
+            const form = document.getElementById('subventionForm');
+            const successMessage = document.getElementById('successMessage');
+            const submitDocumentsButton = document.getElementById('submitDocumentsButton');
+            let currentStep = 0;
+    
+            // Fonction pour valider les champs du formulaire pour chaque étape
+            function validateStep(step) {
+                const inputs = steps[step].querySelectorAll('input, select, textarea');
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (!input.checkValidity()) {
+                        input.reportValidity();
+                        isValid = false;
+                    }
+                });
+                return isValid;
+            }
+    
+            // Gérer les boutons "Suivant"
+            nextButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (validateStep(currentStep)) {
+                        steps[currentStep].classList.remove('active');
+                        currentStep++;
+                        if (currentStep < steps.length) {
+                            steps[currentStep].classList.add('active');
+                        }
+                    }
+                });
+            });
+    
+            // Gérer les boutons "Précédent"
+            prevButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    steps[currentStep].classList.remove('active');
+                    currentStep--;
+                    steps[currentStep].classList.add('active');
+                });
+            });
+    
+            // Gestion de la soumission du formulaire
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();  // Empêche la soumission classique du formulaire
+    
+                // Valider la dernière étape avant la soumission
+                if (validateStep(currentStep)) {
+                    form.classList.add('hidden');  // Masquer le formulaire
+                    successMessage.classList.remove('hidden');  // Afficher le message de succès
+                }
+            });
+    
+            // Redirection vers la page de soumission de documents
+            submitDocumentsButton.addEventListener('click', function() {
+                window.location.href = 'form-doc.html';
+            });
+        });
+    </script>
+</body>
+</html>
