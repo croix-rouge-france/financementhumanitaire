@@ -161,11 +161,11 @@
         }
 
         .testimonial-cards {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            overflow-x: scroll;
-            padding: 20px 0;
+            padding: 20px;
+            justify-items: center;
         }
 
         .testimonial-card {
@@ -173,8 +173,14 @@
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 100%;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .testimonial-card p {
@@ -211,32 +217,11 @@
 
         /* Media Queries */
         @media screen and (max-width: 768px) {
-            .service-cards {
+            .testimonial-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .header nav ul {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-open {
-                display: block;
-            }
-
-            .contact form {
-                grid-template-columns: 1fr;
+            .testimonial-card {
+                width: 100%;
             }
         }
 
@@ -296,6 +281,7 @@
     <section id="testimonials" class="testimonials">
         <h2>Témoignages</h2>
         <div class="testimonial-cards">
+            <!-- Testimonial 1 -->
             <div class="testimonial-card">
                 <p>"Grâce à Financement Plus, j'ai pu obtenir un prêt rapide et avantageux. Un vrai soulagement!"</p>
                 <div class="author">
@@ -303,6 +289,8 @@
                     <span>Jean Dupont</span>
                 </div>
             </div>
+
+            <!-- Testimonial 2 -->
             <div class="testimonial-card">
                 <p>"Le processus a été simple et clair. Je recommande vivement leurs services!"</p>
                 <div class="author">
@@ -310,11 +298,40 @@
                     <span>Marie Leclerc</span>
                 </div>
             </div>
+
+            <!-- Testimonial 3 -->
             <div class="testimonial-card">
                 <p>"Un service rapide et professionnel, j'ai obtenu le financement nécessaire pour mon projet immobilier. Merci Financement Plus!"</p>
                 <div class="author">
                     <img src="https://randomuser.me/api/portraits/men/37.jpg" alt="Luc Martin">
                     <span>Luc Martin</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+                <p>"Je n'aurais jamais pensé obtenir un financement aussi rapidement et à de tels taux ! Très satisfait."</p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="François Lefevre">
+                    <span>François Lefevre</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+                <p>"Une équipe dynamique et réactive. J'ai pu financer mon projet d'achat immobilier sans tracas. Merci !"</p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/women/38.jpg" alt="Caroline Dufresne">
+                    <span>Caroline Dufresne</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 6 -->
+            <div class="testimonial-card">
+                <p>"Service impeccable. J'ai eu une réponse rapide et des solutions personnalisées. Très professionnel."</p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Antoine Leblanc">
+                    <span>Antoine Leblanc</span>
                 </div>
             </div>
         </div>
