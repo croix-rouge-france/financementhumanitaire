@@ -30,12 +30,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: background 0.3s ease;
         }
 
         /* Container for centering */
         .container {
             width: 100%;
-            max-width: 1200px; /* Limiting the max width */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
@@ -52,6 +53,7 @@
             top: 0;
             z-index: 1000;
             width: 100%;
+            transition: background 0.3s ease;
         }
 
         .logo img {
@@ -81,43 +83,80 @@
             color: #e62705;
         }
 
-        /* Banner Section */
-        .banner {
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: #333;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .nav ul {
+            display: flex;
+        }
+
+        .nav ul li {
+            margin: 0 10px;
+        }
+
+        .nav.open ul {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 400px;
-            width: 100%;
+            height: 90vh;
             background: url('banner-image.jpg') no-repeat center center;
             background-size: cover;
             color: #ffffff;
             text-align: center;
-            padding: 20px;
             position: relative;
             transition: background 0.3s ease;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .banner:hover {
-            background: url('banner-image-hover.jpg') no-repeat center center;
-            background-size: cover;
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
-        .banner-content h1 {
-            font-size: 3.5em;
+        .hero-content h1 {
+            font-size: 4em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
             font-weight: bold;
             letter-spacing: 1px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         .cta-btn {
-            padding: 12px 30px;
+            padding: 15px 30px;
             background-color: #e62705;
             color: white;
             border-radius: 50px;
-            font-size: 1.1em;
+            font-size: 1.2em;
             text-decoration: none;
             transition: all 0.3s ease;
+            animation: fadeInBtn 1.5s ease-out 0.5s;
+        }
+
+        @keyframes fadeInBtn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .cta-btn:hover {
@@ -130,6 +169,7 @@
             padding: 60px 20px;
             background-color: #ffffff;
             text-align: center;
+            animation: fadeIn 2s ease-out;
         }
 
         .services h2 {
@@ -182,79 +222,6 @@
             margin-bottom: 20px;
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            padding: 60px 20px;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: #1e3a46;
-        }
-
-        .testimonial-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            justify-items: center;
-            align-items: stretch;
-        }
-
-        .testimonial-item {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .testimonial-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .testimonial-item p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-item .client-name {
-            font-weight: bold;
-            color: #333;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 60px 20px;
-            background-color: #ffffff;
-            text-align: center;
-        }
-
-        .faq h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: #1e3a46;
-        }
-
-        .faq-item {
-            padding: 20px;
-            margin-bottom: 10px;
-            background-color: #f1f1f1;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .faq-item:hover {
-            background-color: #e62705;
-            color: #fff;
-        }
-
         /* Footer */
         .footer {
             background-color: #2b6777;
@@ -280,46 +247,72 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .testimonial-list {
-                grid-template-columns: repeat(2, 1fr);
+            .hero-content h1 {
+                font-size: 3em;
             }
 
-            .testimonial-item {
-                width: 90%;
-                margin: 0 auto;
+            .cta-btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
             }
         }
 
         @media (max-width: 768px) {
-            .service-list {
-                grid-template-columns: 1fr;
+            .header {
+                padding: 15px;
             }
 
-            .testimonial-list {
-                grid-template-columns: 1fr;
+            .nav {
+                display: none;
+                width: 100%;
             }
 
-            .faq-item {
-                font-size: 16px;
+            .hamburger-menu {
+                display: block;
+            }
+
+            .nav.open {
+                display: block;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: white;
+                padding: 20px;
+                width: 200px;
+                box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+            }
+
+            .nav ul {
+                display: block;
+                text-align: center;
+            }
+
+            .nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2em;
             }
 
             .cta-btn {
                 padding: 10px 20px;
                 font-size: 1em;
             }
-
-            .banner-content h1 {
-                font-size: 2.5em;
-            }
         }
     </style>
 </head>
 <body>
-
     <!-- Header -->
     <header class="header">
         <div class="logo">
             <img src="logo.png" alt="Logo entreprise">
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
         <nav class="nav">
             <ul>
@@ -333,16 +326,16 @@
         </nav>
     </header>
 
-    <!-- Banner -->
-    <section id="accueil" class="banner">
-        <div class="banner-content">
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
             <h1>Bienvenue chez Financement Plus</h1>
             <p>Nous vous connectons à des subventions pour propulser vos projets.</p>
             <a href="formulaire.html" class="cta-btn">Demander une subvention</a>
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <h2>Nos Services</h2>
@@ -366,47 +359,17 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>Témoignages de nos clients</h2>
-            <div class="testimonial-list">
-                <div class="testimonial-item">
-                    <p>"Grâce à Financement Plus, j'ai obtenu le prêt qu'il me fallait rapidement. Leur équipe est très réactive et professionnelle!"</p>
-                    <p class="client-name">- Jean Dupont</p>
-                </div>
-                <div class="testimonial-item">
-                    <p>"Un service incroyable et des conseillers à l'écoute. Je recommande vivement leurs services pour tout besoin de financement."</p>
-                    <p class="client-name">- Marie Martin</p>
-                </div>
-                <div class="testimonial-item">
-                    <p>"J'ai pu acheter ma maison grâce à leur financement immobilier. Très satisfait du résultat!"</p>
-                    <p class="client-name">- Louis Durand</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2>Questions Fréquentes</h2>
-            <div class="faq-item">
-                <p>Quels types de prêts proposez-vous?</p>
-            </div>
-            <div class="faq-item">
-                <p>Comment puis-je faire une demande de financement?</p>
-            </div>
-            <div class="faq-item">
-                <p>Y a-t-il des frais cachés dans vos offres?</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Financement Plus. Tous droits réservés.</p>
         <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav');
+            nav.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
