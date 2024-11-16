@@ -108,8 +108,7 @@
 
         /* Hero Section */
         .hero {
-            background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
-            background-attachment: fixed;
+            background: url('hero-image.jpg') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -118,7 +117,6 @@
             text-align: center;
             color: white;
             padding: 0 20px;
-            position: relative;
         }
 
         .hero h1 {
@@ -148,7 +146,51 @@
             transform: translateY(-5px);
         }
 
-        /* Testimonial Section */
+        /* Service Section */
+        .services {
+            padding: 80px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #f4f7f6;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #e62705;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
         .testimonials {
             background-color: #f4f7f6;
             padding: 80px 20px;
@@ -161,11 +203,11 @@
         }
 
         .testimonial-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            justify-content: center;
             gap: 30px;
-            padding: 20px;
-            justify-items: center;
+            overflow-x: scroll;
+            padding: 20px 0;
         }
 
         .testimonial-card {
@@ -173,14 +215,8 @@
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-            width: 100%;
+            width: 300px;
             text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .testimonial-card p {
@@ -203,6 +239,67 @@
             vertical-align: middle;
         }
 
+        /* Contact Section */
+        .contact {
+            background-color: #333;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .contact form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact form input, .contact form textarea {
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f4f7f6;
+        }
+
+        .contact form button {
+            background-color: #e62705;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact form button:hover {
+            background-color: #c11e00;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            color: #e62705;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             0% {
@@ -217,11 +314,32 @@
 
         /* Media Queries */
         @media screen and (max-width: 768px) {
-            .testimonial-cards {
+            .service-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .testimonial-card {
-                width: 100%;
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .header nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-open {
+                display: block;
+            }
+
+            .contact form {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -277,7 +395,30 @@
         <a href="#contact" class="cta-btn">Demandez une subvention</a>
     </section>
 
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Nos Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <i class="fas fa-piggy-bank"></i>
+                <h3>Prêts Personnels</h3>
+                <p>Accédez à des prêts sur mesure pour vos projets personnels.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Financement Immobilier</h3>
+                <p>Obtenez un prêt pour l'achat de votre bien immobilier.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Rachat de Crédit</h3>
+                <p>Réduisez vos mensualités et gérez vos crédits en toute simplicité.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
+      <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <h2>Témoignages</h2>
         <div class="testimonial-cards">
@@ -289,7 +430,6 @@
                     <span>Jean Dupont</span>
                 </div>
             </div>
-
             <!-- Testimonial 2 -->
             <div class="testimonial-card">
                 <p>"Le processus a été simple et clair. Je recommande vivement leurs services!"</p>
@@ -298,7 +438,6 @@
                     <span>Marie Leclerc</span>
                 </div>
             </div>
-
             <!-- Testimonial 3 -->
             <div class="testimonial-card">
                 <p>"Un service rapide et professionnel, j'ai obtenu le financement nécessaire pour mon projet immobilier. Merci Financement Plus!"</p>
@@ -307,34 +446,42 @@
                     <span>Luc Martin</span>
                 </div>
             </div>
-
             <!-- Testimonial 4 -->
             <div class="testimonial-card">
-                <p>"Je n'aurais jamais pensé obtenir un financement aussi rapidement et à de tels taux ! Très satisfait."</p>
+                <p>"J'ai bénéficié de conseils précieux et d'un financement adapté à mes projets. Merci à toute l'équipe!"</p>
                 <div class="author">
-                    <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="François Lefevre">
-                    <span>François Lefevre</span>
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie Bernard">
+                    <span>Sophie Bernard</span>
                 </div>
             </div>
-
             <!-- Testimonial 5 -->
             <div class="testimonial-card">
-                <p>"Une équipe dynamique et réactive. J'ai pu financer mon projet d'achat immobilier sans tracas. Merci !"</p>
+                <p>"Financement Plus a facilité l'achat de ma maison. Un service rapide et sans tracas!"</p>
                 <div class="author">
-                    <img src="https://randomuser.me/api/portraits/women/38.jpg" alt="Caroline Dufresne">
-                    <span>Caroline Dufresne</span>
+                    <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="Antoine Lefevre">
+                    <span>Antoine Lefevre</span>
                 </div>
             </div>
-
             <!-- Testimonial 6 -->
             <div class="testimonial-card">
-                <p>"Service impeccable. J'ai eu une réponse rapide et des solutions personnalisées. Très professionnel."</p>
+                <p>"Le processus de demande a été facile à comprendre et j'ai eu une réponse rapide. Très satisfait!"</p>
                 <div class="author">
-                    <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Antoine Leblanc">
-                    <span>Antoine Leblanc</span>
+                    <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="Julien Dubois">
+                    <span>Julien Dubois</span>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contactez-nous</h2>
+        <form>
+            <input type="text" placeholder="Votre Nom" required>
+            <input type="email" placeholder="Votre Email" required>
+            <textarea placeholder="Votre Message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
     </section>
 
     <!-- Footer -->
@@ -348,6 +495,5 @@
             document.querySelector('.nav-open').classList.toggle('nav-open');
         }
     </script>
-
 </body>
 </html>
