@@ -37,7 +37,7 @@
             right: 0;
             z-index: 1000;
             background-color: #ffffff;
-            padding: 15px 30px;
+            padding: 20px 30px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
@@ -87,7 +87,7 @@
         }
 
         .nav-open {
-            display: block;
+            display: none;
             position: absolute;
             top: 60px;
             left: 0;
@@ -228,6 +228,15 @@
         .testimonial-card .author {
             font-weight: bold;
             color: #e62705;
+            margin-top: 10px;
+        }
+
+        .testimonial-card .author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            vertical-align: middle;
         }
 
         /* Contact Section */
@@ -327,17 +336,6 @@
 
             .nav-open {
                 display: block;
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: #fff;
-                padding: 20px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-open ul {
-                text-align: center;
             }
 
             .contact form {
@@ -367,11 +365,6 @@
         <div class="logo">
             <img src="logo.png" alt="Logo entreprise">
         </div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
         <nav class="nav">
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
@@ -380,6 +373,11 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav class="nav-open">
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
@@ -425,11 +423,17 @@
         <div class="testimonial-cards">
             <div class="testimonial-card">
                 <p>"Grâce à Financement Plus, j'ai pu obtenir un prêt rapide et avantageux. Un vrai soulagement!"</p>
-                <div class="author">Jean Dupont</div>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Jean Dupont">
+                    <span>Jean Dupont</span>
+                </div>
             </div>
             <div class="testimonial-card">
                 <p>"Le processus a été simple et clair. Je recommande vivement leurs services!"</p>
-                <div class="author">Marie Leclerc</div>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Marie Leclerc">
+                    <span>Marie Leclerc</span>
+                </div>
             </div>
         </div>
     </section>
