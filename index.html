@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Obtenez les meilleures subventions de l'Europe.">
-    <meta name="keywords" content="subvention, prêt, financement, crédit, prêt immobilier, prêt personnel">
-    <meta name="author" content="Votre entreprise de financement">
-    <meta property="og:title" content="Meilleurs prêts et subventions">
-    <meta property="og:description" content="Solutions de financement adaptées à vos projets avec des taux avantageux.">
-    <meta property="og:image" content="URL_image_promos.jpg">
-    <meta property="og:url" content="https://www.votre-site.com">
+    <meta name="description" content="Solutions de financement sur mesure pour particuliers et entreprises">
+    <meta name="keywords" content="subvention, prêt, financement, crédit, prêt immobilier">
+    <meta name="author" content="Financement Plus">
+    <meta property="og:title" content="Financement Plus - Vos solutions de financement">
+    <meta property="og:description" content="Découvrez nos solutions de financement pour réaliser vos projets avec des prêts avantageux.">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <title>Meilleurs Prêts et Financements | Financement Plus</title>
+    <link rel="icon" href="favicon.ico">
+    <title>Financement Plus - Subventions et Prêts</title>
     
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style">
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <style>
         /* Global Styles */
@@ -25,338 +24,425 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             background-color: #f4f7f6;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-
-        /* Container for centering */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+            overflow-x: hidden;
         }
 
         /* Header */
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            padding: 15px 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
-            background-color: #ffffff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-            transition: background 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
-        .logo img {
-            width: 120px;
-            height: auto;
+        .header .logo img {
+            width: 150px;
         }
 
-        .nav ul {
+        .header nav ul {
             list-style-type: none;
-            margin: 0;
             padding: 0;
+            margin: 0;
             display: flex;
         }
 
-        .nav ul li {
-            margin-left: 20px;
+        .header nav ul li {
+            margin-left: 25px;
         }
 
-        .nav ul li a {
+        .header nav ul li a {
             color: #333;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
-        .nav ul li a:hover {
+        .header nav ul li a:hover {
             color: #e62705;
         }
 
-        .hamburger-menu {
+        .header .hamburger {
             display: none;
             cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 25px;
+            width: 30px;
         }
 
-        .hamburger-menu span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
+        .header .hamburger div {
+            height: 4px;
             background-color: #333;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
-        .nav ul {
-            display: flex;
-        }
-
-        .nav ul li {
-            margin: 0 10px;
-        }
-
-        .nav.open ul {
+        .nav-open {
             display: block;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-open ul {
+            display: block;
+            text-align: center;
+        }
+
+        .nav-open ul li {
+            margin-bottom: 20px;
         }
 
         /* Hero Section */
         .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 90vh;
-            background: url('banner-image.jpg') no-repeat center center;
-            background-size: cover;
-            color: #ffffff;
             text-align: center;
-            position: relative;
-            transition: background 0.3s ease;
-            animation: fadeIn 1.5s ease-out;
+            color: white;
+            padding: 0 20px;
         }
 
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInUp 1.2s ease-out;
         }
 
-        .hero-content h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-            font-weight: bold;
-            letter-spacing: 1px;
-            animation: slideUp 1s ease-out;
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            animation: fadeInUp 1.5s ease-out;
         }
 
-        @keyframes slideUp {
-            0% { transform: translateY(50px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
-        .cta-btn {
-            padding: 15px 30px;
+        .hero .cta-btn {
             background-color: #e62705;
             color: white;
-            border-radius: 50px;
-            font-size: 1.2em;
+            padding: 15px 30px;
+            font-size: 1.2rem;
             text-decoration: none;
-            transition: all 0.3s ease;
-            animation: fadeInBtn 1.5s ease-out 0.5s;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 1.8s ease-out;
         }
 
-        @keyframes fadeInBtn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .hero .cta-btn:hover {
+            transform: translateY(-5px);
         }
 
-        .cta-btn:hover {
-            background-color: #3d8777;
-            transform: translateY(-3px);
-        }
-
-        /* Services Section */
+        /* Service Section */
         .services {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background-color: #ffffff;
             text-align: center;
-            animation: fadeIn 2s ease-out;
         }
 
         .services h2 {
-            font-size: 2.5em;
+            font-size: 2.5rem;
             margin-bottom: 40px;
-            color: #1e3a46;
+            color: #333;
         }
 
-        .service-list {
+        .service-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            justify-items: center;
-            align-items: stretch;
+            gap: 30px;
         }
 
-        .service-item {
-            background-color: #ffffff;
+        .service-card {
+            background: #f4f7f6;
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #e62705;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f4f7f6;
+            padding: 80px 20px;
             text-align: center;
         }
 
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
         }
 
-        .service-item i {
-            font-size: 3em;
-            color: #2b6777;
-            margin-bottom: 15px;
+        .testimonial-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            overflow-x: scroll;
+            padding: 20px 0;
         }
 
-        .service-item h3 {
-            font-size: 1.8em;
-            color: #2b6777;
-            margin-bottom: 15px;
+        .testimonial-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
         }
 
-        .service-item p {
-            color: #555;
-            font-size: 1.1em;
+        .testimonial-card p {
+            font-size: 1.1rem;
+            color: #777;
             margin-bottom: 20px;
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            color: #e62705;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #333;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .contact form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact form input, .contact form textarea {
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f4f7f6;
+        }
+
+        .contact form button {
+            background-color: #e62705;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact form button:hover {
+            background-color: #c11e00;
         }
 
         /* Footer */
         .footer {
-            background-color: #2b6777;
+            background-color: #333;
             color: white;
-            padding: 20px;
+            padding: 30px 20px;
             text-align: center;
-            width: 100%;
         }
 
         .footer a {
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
-            margin-left: 15px;
+            font-weight: 600;
         }
 
         .footer a:hover {
-            text-decoration: underline;
+            color: #e62705;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Media Queries */
-        @media (max-width: 1024px) {
-            .service-list {
+        @media screen and (max-width: 768px) {
+            .service-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .hero-content h1 {
-                font-size: 3em;
+            .hero h1 {
+                font-size: 2.2rem;
             }
 
-            .cta-btn {
-                padding: 12px 25px;
-                font-size: 1.1em;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 15px;
+            .hero p {
+                font-size: 1rem;
             }
 
-            .nav {
+            .header nav ul {
                 display: none;
-                width: 100%;
             }
 
-            .hamburger-menu {
-                display: block;
+            .hamburger {
+                display: flex;
             }
 
-            .nav.open {
+            .nav-open {
                 display: block;
-                position: absolute;
+                position: fixed;
                 top: 60px;
+                left: 0;
                 right: 0;
-                background-color: white;
+                background-color: #fff;
                 padding: 20px;
-                width: 200px;
-                box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             }
 
-            .nav ul {
-                display: block;
+            .nav-open ul {
                 text-align: center;
             }
 
-            .nav ul li {
-                margin: 10px 0;
+            .contact form {
+                grid-template-columns: 1fr;
             }
+        }
 
-            .hero-content h1 {
-                font-size: 2.2em;
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
             }
 
             .cta-btn {
-                padding: 10px 20px;
-                font-size: 1em;
+                font-size: 1rem;
+            }
+
+            .footer {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <header class="header">
         <div class="logo">
             <img src="logo.png" alt="Logo entreprise">
         </div>
-        <div class="hamburger-menu" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
         <nav class="nav">
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#testimonials">Témoignages</a></li>
-                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="formulaire.html">Demander un financement</a></li>
+            </ul>
+        </nav>
+        <nav class="nav-open">
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Témoignages</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="accueil" class="hero">
-        <div class="hero-content">
-            <h1>Bienvenue chez Financement Plus</h1>
-            <p>Nous vous connectons à des subventions pour propulser vos projets.</p>
-            <a href="formulaire.html" class="cta-btn">Demander une subvention</a>
-        </div>
+        <h1>Bienvenue chez Financement Plus</h1>
+        <p>Votre partenaire pour des solutions de financement adaptées à vos besoins.</p>
+        <a href="#contact" class="cta-btn">Demandez une subvention</a>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <div class="container">
-            <h2>Nos Services</h2>
-            <div class="service-list">
-                <div class="service-item">
-                    <i class="fas fa-piggy-bank"></i>
-                    <h3>Prêts personnels</h3>
-                    <p>Des prêts flexibles pour vos besoins personnels.</p>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-home"></i>
-                    <h3>Financement immobilier</h3>
-                    <p>Obtenez un financement pour l'achat de votre maison ou appartement.</p>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-sync-alt"></i>
-                    <h3>Rachat de crédit</h3>
-                    <p>Réduisez vos mensualités en regroupant vos crédits.</p>
-                </div>
+        <h2>Nos Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <i class="fas fa-piggy-bank"></i>
+                <h3>Prêts Personnels</h3>
+                <p>Accédez à des prêts sur mesure pour vos projets personnels.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Financement Immobilier</h3>
+                <p>Obtenez un prêt pour l'achat de votre bien immobilier.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Rachat de Crédit</h3>
+                <p>Réduisez vos mensualités et gérez vos crédits en toute simplicité.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>Témoignages</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p>"Grâce à Financement Plus, j'ai pu obtenir un prêt rapide et avantageux. Un vrai soulagement!"</p>
+                <div class="author">Jean Dupont</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Le processus a été simple et clair. Je recommande vivement leurs services!"</p>
+                <div class="author">Marie Leclerc</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contactez-nous</h2>
+        <form>
+            <input type="text" placeholder="Votre Nom" required>
+            <input type="email" placeholder="Votre Email" required>
+            <textarea placeholder="Votre Message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
     </section>
 
     <!-- Footer -->
@@ -367,8 +453,7 @@
 
     <script>
         function toggleMenu() {
-            const nav = document.querySelector('.nav');
-            nav.classList.toggle('open');
+            document.querySelector('.nav-open').classList.toggle('nav-open');
         }
     </script>
 </body>
