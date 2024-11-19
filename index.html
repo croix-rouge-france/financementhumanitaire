@@ -20,14 +20,99 @@
     
     <style>
         /* Global Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f4f7f6;
-            overflow-x: hidden;
-        }
+body {
+    font-family: 'Poppins', sans-serif; /* Choix de la police */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f7f6; /* Couleur de fond claire */
+    overflow-x: hidden; /* Empêche le débordement horizontal */
+    line-height: 1.6; /* Meilleure lisibilité du texte */
+    color: #333; /* Couleur du texte */
+}
+
+/* Body container with padding */
+.container {
+    padding: 20px;
+    max-width: 1200px; /* Limite la largeur max */
+    margin: 0 auto; /* Centrage */
+}
+
+/* Heading Styles */
+h1, h2, h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #222; /* Couleur sombre pour les titres */
+    line-height: 1.4;
+}
+
+/* Paragraphs */
+p {
+    margin: 0 0 20px; /* Espacement entre les paragraphes */
+    color: #555; /* Couleur du texte des paragraphes */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    body {
+        padding: 0 10px; /* Un peu d'espace sur les côtés */
+    }
+
+    .container {
+        padding: 15px; /* Réduit l'espacement sur les écrans moyens */
+    }
+
+    h1 {
+        font-size: 2.5em; /* Taille du titre sur tablette */
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Réduction de la taille de la police sur les tablettes */
+        padding: 0 10px;
+    }
+
+    h1 {
+        font-size: 2.2em; /* Plus petit sur tablettes */
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 16px; /* Ajustement de la taille du texte */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Réduction de la taille de police sur mobile */
+        padding: 0 5px;
+    }
+
+    h1 {
+        font-size: 1.8em; /* Taille des titres plus petits */
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    p {
+        font-size: 14px; /* Taille des paragraphes plus petite */
+        margin-bottom: 15px; /* Un peu plus d'espace entre les paragraphes */
+    }
+}
 
         /* Header */
         .header {
