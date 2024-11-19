@@ -124,41 +124,48 @@
                 font-size: 0.9rem;
             }
         }
-        /* Header Section */
+       /* Style de base pour le Header */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
-    padding: 20px 50px;
-    z-index: 9999;
+    height: 80px; /* Hauteur standard */
+    background: transparent;
+    padding: 20px 30px;
+    z-index: 999;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.3s ease-in-out, padding 0.3s ease-in-out;
-    backdrop-filter: blur(10px); /* Effet de flou pour un look moderne */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    transition: all 0.3s ease;
 }
 
 .header.scrolled {
-    background: rgba(255, 255, 255, 1); /* Fond opaque lors du scroll */
-    padding: 15px 50px; /* Réduction du padding au scroll */
+    background: #fff; /* Fond opaque lorsqu'on fait défiler */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 15px 30px;
 }
 
+/* Logo */
 .header .logo img {
     height: 50px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease;
 }
 
-/* Animations de logo */
+/* Animation du logo lors du scroll */
 .header.scrolled .logo img {
-    transform: scale(0.9); /* Réduction de la taille du logo lors du scroll */
+    transform: scale(0.8); /* Réduction du logo au scroll */
 }
 
+/* Style du menu */
 nav ul {
-    list-style: none;
     display: flex;
+    justify-content: space-between;
     gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 nav ul li {
@@ -171,33 +178,39 @@ nav ul li a {
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
-    transition: color 0.3s ease, transform 0.3s ease;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    transition: all 0.3s ease;
 }
 
+/* Effet de survol du lien */
 nav ul li a:hover {
-    color: #4CAF50; /* Change la couleur au survol */
-    transform: translateY(-3px); /* Animation au survol */
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50; /* Ligne au survol */
+    transform: translateY(-3px); /* Effet de décalage au survol */
 }
 
-/* Menu Hamburger */
+/* Hamburger Menu */
 .hamburger {
     display: none;
     flex-direction: column;
-    gap: 6px;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
     cursor: pointer;
 }
 
 .hamburger div {
-    width: 25px;
+    width: 100%;
     height: 3px;
     background-color: #333;
     border-radius: 5px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-/* Menu Hamburger animé */
+/* Animation du hamburger */
 .hamburger.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translateY(6px);
 }
 
 .hamburger.active div:nth-child(2) {
@@ -205,23 +218,23 @@ nav ul li a:hover {
 }
 
 .hamburger.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translateY(-6px);
 }
 
-/* Menu Open (Mobile) */
+/* Menu mobile */
 .nav-open {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    width: 300px;
+    width: 250px;
     height: 100vh;
+    background: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 .nav-open ul {
@@ -243,16 +256,17 @@ nav ul li a:hover {
     transition: color 0.3s ease;
 }
 
+/* Effet au survol dans le menu mobile */
 .nav-open ul li a:hover {
-    color: #4CAF50; /* Change la couleur au survol */
+    color: #4CAF50;
 }
 
-/* Menu mobile ouvert */
+/* Menu ouvert en mobile */
 .nav-open.active {
     display: flex;
 }
 
-/* Scroll effect */
+/* Réglages pour les petits écrans (Mobile) */
 @media (max-width: 768px) {
     nav ul {
         display: none;
@@ -262,8 +276,8 @@ nav ul li a:hover {
         display: flex;
     }
 
-    .header .logo img {
-        height: 40px;
+    .header {
+        padding: 15px 20px;
     }
 }
 
@@ -633,30 +647,30 @@ nav ul li a:hover {
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="logo">
-            <img src="logo.png" alt="Financement Plus">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#hero">Accueil</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="nav-open">
-            <ul>
-                <li><a href="#hero">Accueil</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </header>
+<header class="header">
+    <div class="logo">
+        <img src="logo.png" alt="Financement Plus">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="nav-open">
+        <ul>
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</header>
 
    <!-- Hero Section -->
 <section class="hero" id="hero">
@@ -749,6 +763,27 @@ nav ul li a:hover {
         function toggleMenu() {
             document.querySelector('.nav-open').classList.toggle('nav-open');
         }
+        
+        // Fonction pour gérer le menu hamburger et le menu mobile
+function toggleMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navOpen = document.querySelector('.nav-open');
+    
+    hamburger.classList.toggle('active');
+    navOpen.classList.toggle('active');
+}
+
+// Ajout de la classe "scrolled" lorsque l'utilisateur défile
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
     </script>
 </body>
 </html>
