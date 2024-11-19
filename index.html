@@ -124,39 +124,49 @@
                 font-size: 0.9rem;
             }
         }
-        /* Style de base pour le Header */
+      /* Style de base pour le Header */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px; /* Hauteur standard */
-    background: transparent;
+    background: #2c3e50; /* Gris anthracite pour un look professionnel */
     padding: 20px 30px;
     z-index: 999;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre subtile */
     transition: all 0.3s ease;
 }
 
+/* Animation du logo lors du scroll */
+.header .logo img {
+    height: 50px;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Transition pour le logo */
+}
+
+/* Effet de réduction du logo au scroll */
+.header.scrolled .logo img {
+    transform: scale(0.8); /* Réduction du logo au scroll */
+    filter: brightness(0) invert(1); /* Assure que le logo reste visible en blanc */
+}
+
+/* Ajustement du fond du header au défilement */
 .header.scrolled {
-    background: #fff; /* Fond opaque lorsqu'on fait défiler */
+    background: #34495e; /* Ton plus clair au scroll, pour plus de contraste */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     padding: 15px 30px;
 }
 
-/* Logo */
-.header .logo img {
-    height: 50px;
-    transition: transform 0.3s ease;
+/* Réglages pour les petits écrans (Mobile) */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
 }
 
-/* Animation du logo lors du scroll */
-.header.scrolled .logo img {
-    transform: scale(0.8); /* Réduction du logo au scroll */
-}
 
 /* Style du menu */
 nav ul {
