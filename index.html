@@ -291,87 +291,129 @@
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
-
         /* Section Testimonials */
 .testimonials {
-    padding: 30px;
-    background-color: #f9f9f9;
+    padding: 80px 20px; /* Plus d'espace autour pour les grands écrans */
+    background-color: #f4f4f4; /* Fond clair et neutre */
     text-align: center;
+    font-family: 'Georgia', serif; /* Typographie élégante */
 }
 
 .testimonials h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2.5rem; /* Plus grand titre pour donner de l'impact */
+    margin-bottom: 50px;
+    color: #333; /* Texte sombre pour un contraste élégant */
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .testimonial-slider {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille fluide avec une largeur minimale */
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
     margin-top: 20px;
 }
 
 /* Style de chaque témoignage */
 .testimonial {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;  /* Largeur de base sur petit écran */
+    background-color: #fff; /* Fond blanc pour chaque témoignage */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); /* Ombre élégante */
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    max-width: 350px; /* Limite de la largeur des témoignages */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce au survol */
+}
+
+.testimonial:hover {
+    transform: translateY(-10px); /* Effet de légère élévation */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); /* Ombre renforcée au survol */
 }
 
 .testimonial img {
-    width: 80px;
-    height: 70px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #4CAF50; /* Bordure fine verte autour de l'image */
 }
 
 .testimonial p {
-    font-size: 1rem;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
     color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
 .testimonial h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #333;
-    font-weight: 600;
+    font-weight: 700;
+    margin-top: 10px;
+    letter-spacing: 1px;
 }
 
-/* Mobile First : ajustement pour petits écrans */
-@media (max-width: 768px) {
+/* Effets supplémentaires */
+.testimonial p::before {
+    content: "“"; /* Guillemet d'ouverture avant le texte */
+    font-size: 2rem;
+    color: #4CAF50; /* Couleur de la citation */
+    margin-right: 5px;
+}
+
+.testimonial p::after {
+    content: "”"; /* Guillemet de fermeture après le texte */
+    font-size: 2rem;
+    color: #4CAF50; /* Couleur de la citation */
+    margin-left: 5px;
+}
+
+/* Pour les écrans larges (tablette et plus grand) */
+@media (min-width: 1200px) {
     .testimonials h2 {
-        font-size: 1.5rem;
+        font-size: 3rem; /* Titre plus grand sur les très grands écrans */
     }
-    
+
     .testimonial-slider {
-        flex-direction: column;
-        gap: 15px;
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes pour les très grands écrans */
     }
 
     .testimonial {
-        width: 90%;  /* Largeur des témoignages plus grande sur petits écrans */
-        margin: 0 auto;
+        max-width: 400px; /* Augmente la taille des témoignages sur grands écrans */
+    }
+}
+
+/* Mobile first - ajustement sur petits écrans */
+@media (max-width: 768px) {
+    .testimonials h2 {
+        font-size: 2rem;
+    }
+
+    .testimonial-slider {
+        grid-template-columns: 1fr; /* Affichage en colonne sur petits écrans */
     }
 
     .testimonial img {
-        width: 70px;
-        height: 60px;
+        width: 100px; /* Plus petit sur mobile */
+        height: 100px;
     }
 
     .testimonial p {
-        font-size: 0.9rem;
+        font-size: 1rem; /* Texte plus petit sur mobile */
     }
 
     .testimonial h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Légèrement plus petit sur mobile */
     }
 }
+
+
+     
 
 /* Tablette et plus grand (au-dessus de 768px) */
 @media (min-width: 769px) {
@@ -494,53 +536,47 @@
     </section>
 
     <!-- Testimonials Section -->
+   
     <section class="testimonials">
-        <h2>Ils nous ont fait confiance</h2>
-        <div class="testimonial-slider">
-            <div class="testimonial">
-                <img src="client11.jpg" alt="Client 11">
-                <p>"Un service rapide et des solutions adaptées à mon projet immobilier."</p>
-                <h3>Jean Dupont</h3>
-            </div>
-            <div class="testimonial">
-                <img src="client22.jpg" alt="Client 22">
-                <p>"Grâce à Financement Plus, j'ai pu concrétiser mon rêve d'entrepreneur."</p>
-                <h3>Marie Lemoine</h3>
-            </div>
-           <div class="testimonial">
-    <img src="client1.png" alt="Marc D.">
-    <p>"J'ai eu recours à ce site pour un prêt personnel et je suis vraiment impressionné par la rapidité du processus. Tout a été fait en ligne, de la demande de prêt à l'acceptation, et les fonds ont été versés sur mon compte en seulement 48 heures ! Je recommande vivement ce service à tous ceux qui ont besoin d'une solution rapide et fiable."</p>
-    <h3>Marc D.</h3>
-</div>
-
-<div class="testimonial">
-    <img src="client2.jpg" alt="Sophie L.">
-    <p>"Une expérience exceptionnelle ! L’équipe a été très réactive et a pris le temps de m’expliquer toutes les options qui s’offraient à moi. Grâce à leur assistance, j’ai pu obtenir un prêt adapté à mes besoins, avec des conditions très avantageuses. Je n’hésiterai pas à revenir vers eux pour mes futurs besoins en financement."</p>
-    <h3>Sophie L.</h3>
-</div>
-
-<div class="testimonial">
-    <img src="client3.webp" alt="Julien B.">
-    <p>"J'étais un peu sceptique au départ, mais ce site a totalement répondu à mes attentes. Le processus de demande de prêt est simple et transparent, et j’ai pu obtenir une réponse rapide. Je me suis senti accompagné tout au long de la démarche. C’est un service de qualité que je n'hésiterai pas à recommander à mes proches."</p>
-    <h3>Julien B.</h3>
-</div>
-
-<div class="testimonial">
-    <img src="client4.jpg" alt="Nathalie P.">
-    <p>"Je cherchais une solution de financement pour rénover ma maison et j’ai trouvé ce site par recommandation. Tout a été clair dès le départ, et le taux proposé était bien plus bas que celui des autres institutions que j’avais consultées. Les délais ont été respectés, et je suis très satisfait du service."</p>
-    <h3>Nathalie P.</h3>
-</div>
-
-<div class="testimonial">
-    <img src="client5.jpg" alt="Thomas G.">
-    <p>"En tant qu’entrepreneur, j’avais besoin d'un prêt pour développer mon activité, mais je ne savais pas par où commencer. Ce site m’a permis de trouver une solution sur mesure, avec un accompagnement personnalisé. Grâce à leur expertise, j’ai pu financer mes projets et faire croître mon entreprise. Un grand merci à toute l’équipe !"</p>
-    <h3>Thomas G.</h3>
-</div>
-
-            
+    <h2>Ils nous ont fait confiance</h2>
+    <div class="testimonial-slider">
+        <div class="testimonial">
+            <img src="client11.jpg" alt="Jean Dupont">
+            <p>"Un service rapide et des solutions adaptées à mon projet immobilier."</p>
+            <h3>Jean Dupont</h3>
         </div>
-        
-    </section>
+        <div class="testimonial">
+            <img src="client22.jpg" alt="Marie Lemoine">
+            <p>"Grâce à Financement Plus, j'ai pu concrétiser mon rêve d'entrepreneur."</p>
+            <h3>Marie Lemoine</h3>
+        </div>
+        <div class="testimonial">
+            <img src="client1.png" alt="Marc D.">
+            <p>"J'ai eu recours à ce site pour un prêt personnel et je suis vraiment impressionné par la rapidité du processus. Tout a été fait en ligne, de la demande de prêt à l'acceptation, et les fonds ont été versés sur mon compte en seulement 48 heures ! Je recommande vivement ce service à tous ceux qui ont besoin d'une solution rapide et fiable."</p>
+            <h3>Marc D.</h3>
+        </div>
+        <div class="testimonial">
+            <img src="client2.jpg" alt="Sophie L.">
+            <p>"Une expérience exceptionnelle ! L’équipe a été très réactive et a pris le temps de m’expliquer toutes les options qui s’offraient à moi. Grâce à leur assistance, j’ai pu obtenir un prêt adapté à mes besoins, avec des conditions très avantageuses. Je n’hésiterai pas à revenir vers eux pour mes futurs besoins en financement."</p>
+            <h3>Sophie L.</h3>
+        </div>
+        <div class="testimonial">
+            <img src="client3.webp" alt="Julien B.">
+            <p>"J'étais un peu sceptique au départ, mais ce site a totalement répondu à mes attentes. Le processus de demande de prêt est simple et transparent, et j’ai pu obtenir une réponse rapide. Je me suis senti accompagné tout au long de la démarche. C’est un service de qualité que je n'hésiterai pas à recommander à mes proches."</p>
+            <h3>Julien B.</h3>
+        </div>
+        <div class="testimonial">
+            <img src="client4.jpg" alt="Nathalie P.">
+            <p>"Je cherchais une solution de financement pour rénover ma maison et j’ai trouvé ce site par recommandation. Tout a été clair dès le départ, et le taux proposé était bien plus bas que celui des autres institutions que j’avais consultées. Les délais ont été respectés, et je suis très satisfait du service."</p>
+            <h3>Nathalie P.</h3>
+        </div>
+        <div class="testimonial">
+            <img src="client5.jpg" alt="Thomas G.">
+            <p>"En tant qu’entrepreneur, j’avais besoin d'un prêt pour développer mon activité, mais je ne savais pas par où commencer. Ce site m’a permis de trouver une solution sur mesure, avec un accompagnement personnalisé. Grâce à leur expertise, j’ai pu financer mes projets et faire croître mon entreprise. Un grand merci à toute l’équipe !"</p>
+            <h3>Thomas G.</h3>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
    <footer class="footer">
