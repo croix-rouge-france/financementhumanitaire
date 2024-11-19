@@ -124,7 +124,7 @@
                 font-size: 0.9rem;
             }
         }
-       /* Style de base pour le Header */
+        /* Style de base pour le Header */
 .header {
     position: fixed;
     top: 0;
@@ -279,7 +279,14 @@ nav ul li a:hover {
     .header {
         padding: 15px 20px;
     }
+
+    /* Retirer la section de navigation "nav-open" sur mobile */
+    .nav-open {
+        display: none; /* Il n'y a plus de menu mobile à droite */
+    }
 }
+
+      
 
 
        
@@ -646,7 +653,7 @@ nav ul li a:hover {
     </style>
 </head>
 <body>
-    <!-- Header -->
+   <!-- Header -->
 <header class="header">
     <div class="logo">
         <img src="logo.png" alt="Financement Plus">
@@ -663,14 +670,8 @@ nav ul li a:hover {
         <div></div>
         <div></div>
     </div>
-    <div class="nav-open">
-        <ul>
-            <li><a href="#hero">Accueil</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
 </header>
+
 
    <!-- Hero Section -->
 <section class="hero" id="hero">
@@ -763,14 +764,13 @@ nav ul li a:hover {
         function toggleMenu() {
             document.querySelector('.nav-open').classList.toggle('nav-open');
         }
-        
         // Fonction pour gérer le menu hamburger et le menu mobile
 function toggleMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navOpen = document.querySelector('.nav-open');
     
-    hamburger.classList.toggle('active');
-    navOpen.classList.toggle('active');
+    // Si tu veux qu'il n'y ait pas de menu à droite (nav-open), il faut désactiver l'affichage
+    navOpen.classList.toggle('active'); // Ouvre/ferme le menu burger
 }
 
 // Ajout de la classe "scrolled" lorsque l'utilisateur défile
@@ -784,6 +784,8 @@ window.addEventListener('scroll', function() {
     }
 });
 
+        
+      
     </script>
 </body>
 </html>
