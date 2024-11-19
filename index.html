@@ -124,7 +124,7 @@
                 font-size: 0.9rem;
             }
         }
-      /* Style de base pour le Header */
+    /* Style de base pour le Header */
 .header {
     position: fixed;
     top: 0;
@@ -161,7 +161,8 @@
     height: 18px;
     cursor: pointer;
     z-index: 1000; /* Assurer que le hamburger soit au-dessus du contenu */
-      margin-left: -30px; /* Décalage du hamburger à gauche */
+    position: relative; /* Ajout du positionnement relatif */
+    left: -10px; /* Décalage vers la gauche */
 }
 
 .hamburger div {
@@ -189,7 +190,7 @@
 @media (max-width: 768px) {
     /* Espacement entre le logo et le hamburger */
     .header {
-        padding: 10px 10px;
+        padding: 15px 20px;
     }
 
     /* Le hamburger devient visible en mobile */
@@ -197,14 +198,6 @@
         display: flex;
     }
 }
-
-/* Réglages pour les petits écrans (Mobile) */
-@media (max-width: 768px) {
-    .header {
-        padding: 15px 20px;
-    }
-}
-
 
 /* Style du menu */
 nav ul {
