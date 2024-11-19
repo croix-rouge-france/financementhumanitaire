@@ -19,100 +19,111 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <style>
-   body {
-    font-family: 'Poppins', sans-serif; /* Choix de la police */
-    margin: 0;
-    padding-right: 0;
-    box-sizing: border-box;
-    background-color: #f4f7f6; /* Couleur de fond claire */
-    overflow-x: hidden; /* Empêche le débordement horizontal */
-    line-height: 1.6; /* Meilleure lisibilité du texte */
-    color: #333; /* Couleur du texte */
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding-right: 0;
+            box-sizing: border-box;
+            background-color: #f4f7f6;
+            overflow-x: hidden;
+            line-height: 1.6;
+            color: #333;
+        }
 
-/* Body container with padding */
-.container {
-    with:100%;
-    padding: 20px;
-    max-width: 1200px; /* Limite la largeur max */
-    margin: 0 auto; /* Centrage */
-}
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-/* Heading Styles */
-h1, h2, h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #222; /* Couleur sombre pour les titres */
-    line-height: 1.4;
-}
+        h1, h2, h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #222;
+            line-height: 1.4;
+        }
 
-/* Paragraphs */
-p {
-    margin: 0 0 20px; /* Espacement entre les paragraphes */
-    color: #555; /* Couleur du texte des paragraphes */
-}
+        p {
+            margin: 0 0 20px;
+            color: #555;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    body {
-       
-    }
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0px;
+            }
 
-    .container {
-        padding: 0px; /* Réduit l'espacement sur les écrans moyens */
-    }
+            h1 {
+                font-size: 2.5em;
+            }
 
-    h1 {
-        font-size: 2.5em; /* Taille du titre sur tablette */
-    }
+            h2 {
+                font-size: 2em;
+            }
+        }
 
-    h2 {
-        font-size: 2em;
-    }
-}
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                padding: 0 10px;
+            }
 
-@media (max-width: 768px) {
-    body {
-        font-size: 16px; /* Réduction de la taille de la police sur les tablettes */
-        padding: 0 10px;
-    }
+            h1 {
+                font-size: 2.2em;
+            }
 
-    h1 {
-        font-size: 2.2em; /* Plus petit sur tablettes */
-    }
+            h2 {
+                font-size: 1.8em;
+            }
 
-    h2 {
-        font-size: 1.8em;
-    }
+            p {
+                font-size: 16px;
+            }
 
-    p {
-        font-size: 16px; /* Ajustement de la taille du texte */
-    }
-}
+            .header nav ul {
+                display: none;
+            }
 
-@media (max-width: 480px) {
-    body {
-        font-size: 14px; /* Réduction de la taille de police sur mobile */
-        padding: 0 5px;
-    }
+            .hamburger {
+                display: flex;
+            }
 
-    h1 {
-        font-size: 1.8em; /* Taille des titres plus petits */
-    }
+            .nav-open {
+                display: block;
+            }
 
-    h2 {
-        font-size: 1.6em;
-    }
+            .contact form {
+                grid-template-columns: 1fr;
+            }
+        }
 
-    .container {
-        padding: 10px;
-    }
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+                padding: 0 5px;
+            }
 
-    p {
-        font-size: 14px; /* Taille des paragraphes plus petite */
-        margin-bottom: 15px; /* Un peu plus d'espace entre les paragraphes */
-    }
-}
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            p {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            .contact form input, .contact form textarea {
+                font-size: 1rem;
+            }
+
+            .footer {
+                font-size: 0.9rem;
+            }
+        }
 
         /* Header */
         .header {
@@ -232,283 +243,134 @@ p {
         }
 
         /* Service Section */
-.services {
-    padding: 80px 20px;
-    background-color: #ffffff;
-    text-align: center;
-}
-
-.services h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.service-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes par défaut */
-    gap: 30px;
-}
-
-/* Pour les petits écrans (max-width: 768px), passer à 1 colonne */
-@media screen and (max-width: 768px) {
-    .service-cards {
-        grid-template-columns: 1fr; /* Une seule colonne */
-    }
-}
-
-.service-card {
-    background: #f4f7f6;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
-}
-
-.service-card i {
-    font-size: 3rem;
-    color: #e62705;
-    margin-bottom: 15px;
-}
-
-.service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-        /* Section Testimonials */
-.testimonials {
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-.testimonial-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    justify-items: center;
-}
-
-.testimonial-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 400px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.testimonial-card p {
-    font-style: italic;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.author {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.author img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-.author span {
-    font-weight: bold;
-    color: #333;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .testimonials {
-        padding: 30px 10px;
-    }
-
-    .testimonial-cards {
-        gap: 20px;
-    }
-
-    .testimonial-card {
-        max-width: 90%;
-    }
-}
-
-@media (max-width: 480px) {
-    .testimonials h2 {
-        font-size: 2em;
-    }
-
-    .testimonial-card {
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    .author img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .author span {
-        font-size: 0.9em;
-    }
-}
-
-
-        /* Contact Section */
-        .contact {
-            background-color: #333;
-            color: white;
+        .services {
             padding: 80px 20px;
+            background-color: #ffffff;
             text-align: center;
         }
 
-        .contact h2 {
+        .services h2 {
             font-size: 2.5rem;
             margin-bottom: 40px;
+            color: #333;
         }
 
-        .contact form {
+        .service-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        .contact form input, .contact form textarea {
-            padding: 15px;
-            font-size: 1.1rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f4f7f6;
-        }
-
-        .contact form button {
-            background-color: #e62705;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact form button:hover {
-            background-color: #c11e00;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #333;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .footer a:hover {
-            color: #e62705;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Media Queries */
         @media screen and (max-width: 768px) {
             .service-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .header nav ul {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-open {
-                display: block;
-            }
-
-            .contact form {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media screen and (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .cta-btn {
-                font-size: 1rem;
-            }
-
-            .footer {
-                font-size: 0.9rem;
-            }
+        .service-card {
+            background: #f4f7f6;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #e62705;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .testimonial h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .testimonial img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 30px 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e62705;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <img src="logo.png" alt="Logo entreprise">
+            <img src="logo.png" alt="Financement Plus">
         </div>
-        <nav class="nav">
+        <nav>
             <ul>
-                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#hero">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Témoignages</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -517,140 +379,68 @@ p {
             <div></div>
             <div></div>
         </div>
-        <nav class="nav-open">
+        <div class="nav-open">
             <ul>
-                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#hero">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Témoignages</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="accueil" class="hero">
-        <h1>Bienvenue chez Financement Plus</h1>
-        <p>Votre partenaire pour des solutions de financement adaptées à vos besoins.</p>
-        <a href="#contact" class="cta-btn">Demandez une subvention</a>
+    <section class="hero" id="hero">
+        <h1>Réalisez vos projets avec nos solutions de financement</h1>
+        <p>Des solutions adaptées à vos besoins, que vous soyez particulier ou entreprise</p>
+        <a href="#contact" class="cta-btn">Obtenez un devis gratuit</a>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section class="services" id="services">
         <h2>Nos Services</h2>
         <div class="service-cards">
             <div class="service-card">
-                <i class="fas fa-piggy-bank"></i>
-                <h3>Prêts Personnels</h3>
-                <p>Accédez à des prêts sur mesure pour vos projets personnels.</p>
+                <i class="fas fa-building"></i>
+                <h3>Prêt Immobilier</h3>
+                <p>Des solutions de financement pour l'achat de votre maison.</p>
             </div>
             <div class="service-card">
-                <i class="fas fa-home"></i>
-                <h3>Financement Immobilier</h3>
-                <p>Obtenez un prêt pour l'achat de votre bien immobilier.</p>
+                <i class="fas fa-credit-card"></i>
+                <h3>Prêt à la Consommation</h3>
+                <p>Un crédit rapide pour vos projets personnels.</p>
             </div>
             <div class="service-card">
-                <i class="fas fa-sync-alt"></i>
-                <h3>Rachat de Crédit</h3>
-                <p>Réduisez vos mensualités et gérez vos crédits en toute simplicité.</p>
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Subventions</h3>
+                <p>Des aides financières pour vos projets spécifiques.</p>
             </div>
         </div>
     </section>
 
-   <!-- Testimonials Section -->
-<section id="testimonials" class="testimonials">
-    <h2>Témoignages</h2>
-    <div class="testimonial-cards">
-        <div class="testimonial-card">
-            <p>"Grâce à Financement Plus, j'ai pu obtenir un prêt rapide et avantageux. Un vrai soulagement!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Jean Dupont">
-                <span>Jean Dupont</span>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Ils nous ont fait confiance</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <img src="client1.jpg" alt="Client 1">
+                <p>"Un service rapide et des solutions adaptées à mon projet immobilier."</p>
+                <h3>Jean Dupont</h3>
+            </div>
+            <div class="testimonial">
+                <img src="client2.jpg" alt="Client 2">
+                <p>"Grâce à Financement Plus, j'ai pu concrétiser mon rêve d'entrepreneur."</p>
+                <h3>Marie Lemoine</h3>
             </div>
         </div>
-        <div class="testimonial-card">
-            <p>"Le processus a été simple et clair. Je recommande vivement leurs services!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Marie Leclerc">
-                <span>Marie Leclerc</span>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"Une expérience sans stress, rapide et fiable. Je ferai appel à eux à nouveau!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="David Moreau">
-                <span>David Moreau</span>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"J'ai pu obtenir des conseils financiers adaptés à ma situation. Service exceptionnel!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="Sophie Bernard">
-                <span>Sophie Bernard</span>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"Je suis très satisfait du service rapide et professionnel. Tout a été géré de manière transparente!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="Pierre Dupuis">
-                <span>Pierre Dupuis</span>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"Excellente expérience. J'ai eu une réponse à ma demande dans les 24 heures!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Emma Lemoine">
-                <span>Emma Lemoine</span>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"Je recommande vivement Financement Plus pour la clarté de leurs démarches et la rapidité d'exécution."</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/men/73.jpg" alt="Antoine Roussel">
-                <span>Antoine Roussel</span>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"Un excellent service client. J'ai eu toutes les informations nécessaires à chaque étape!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Julie Lefevre">
-                <span>Julie Lefevre</span>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"Ils ont su répondre rapidement à mes besoins et m'ont proposé des solutions adaptées. Très professionnel!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Julien Garcia">
-                <span>Julien Garcia</span>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"Le service était top. J'ai obtenu des réponses précises et rapides à toutes mes questions. Je recommande!"</p>
-            <div class="author">
-                <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Claire Dupont">
-                <span>Claire Dupont</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contactez-nous</h2>
-        <form>
-            <input type="text" placeholder="Votre Nom" required>
-            <input type="email" placeholder="Votre Email" required>
-            <textarea placeholder="Votre Message" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Financement Plus. Tous droits réservés.</p>
-        <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
+        <p>&copy; 2024 Financement Plus - Tous droits réservés.</p>
+        <p>Suivez-nous sur <a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Twitter</a>.</p>
     </footer>
 
+    <!-- Scripts -->
     <script>
         function toggleMenu() {
             document.querySelector('.nav-open').classList.toggle('nav-open');
