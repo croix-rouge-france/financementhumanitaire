@@ -202,45 +202,129 @@
             margin-bottom: 20px;
         }
 
-        /* Hero Section */
-        .hero {
-            background: url('banner-image.jpg') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
+       /* Section Hero */
+.hero {
+    height: 100vh; /* Occupe toute la hauteur de l'écran */
+    background: linear-gradient(135deg, #4CAF50, #2D8C4F); /* Fond dégradé élégant */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+}
 
-        .hero h1 {
-            font-size: 3rem;
-            margin: 0;
-            animation: fadeInUp 1.2s ease-out;
-        }
+/* Animation de l'arrière-plan - dégradé animé */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #4CAF50, #2D8C4F);
+    }
+    50% {
+        background: linear-gradient(135deg, #2D8C4F, #4CAF50);
+    }
+    100% {
+        background: linear-gradient(135deg, #4CAF50, #2D8C4F);
+    }
+}
 
-        .hero p {
-            font-size: 1.2rem;
-            margin: 20px 0;
-            animation: fadeInUp 1.5s ease-out;
-        }
+/* Appliquer l'animation */
+.hero {
+    animation: gradientAnimation 10s ease infinite;
+}
 
-        .hero .cta-btn {
-            background-color: #e62705;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: transform 0.3s ease;
-            animation: fadeInUp 1.8s ease-out;
-        }
+/* Style du titre */
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
 
-        .hero .cta-btn:hover {
-            transform: translateY(-5px);
-        }
+/* Animation du titre */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style du paragraphe */
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 2s ease-out forwards;
+    animation-delay: 0.5s; /* Delai pour que le texte arrive après le titre */
+}
+
+/* Style du bouton CTA */
+.hero .cta-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #4CAF50;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet au survol du bouton */
+.hero .cta-btn:hover {
+    background-color: #388E3C;
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations de particules (en arrière-plan) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('particles.png') center center / cover;
+    opacity: 0.1;
+    animation: moveParticles 15s linear infinite;
+}
+
+/* Animation des particules en arrière-plan */
+@keyframes moveParticles {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(-1000px) translateY(-1000px);
+    }
+}
+
+/* Réglages responsive pour les petits écrans */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .hero .cta-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
 
         /* Service Section */
         .services {
@@ -506,12 +590,13 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <h1>Réalisez vos projets avec nos solutions de financement</h1>
-        <p>Des solutions adaptées à vos besoins, que vous soyez particulier ou entreprise</p>
-        <a href="formulaire.html" class="cta-btn">faire une demande maintenant</a>
-    </section>
+   <!-- Hero Section -->
+<section class="hero" id="hero">
+    <h1>Réalisez vos projets avec nos solutions de financement</h1>
+    <p>Des solutions adaptées à vos besoins, que vous soyez particulier ou entreprise</p>
+    <a href="formulaire.html" class="cta-btn">Faire une demande maintenant</a>
+</section>
+
 
     <!-- Services Section -->
     <section class="services" id="services">
