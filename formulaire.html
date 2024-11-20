@@ -198,7 +198,6 @@
             background-color: #0056b3;
             transform: translateY(-2px);
         }
-
     </style>
 </head>
 <body>
@@ -221,40 +220,29 @@
                 </select>
                 <button type="button" class="next-btn">Suivant</button>
             </div>
+
             <!-- Étape 2 : Informations personnelles et projet -->
-<div class="step" id="step2">
+            <div class="step" id="step2">
+                <label for="firstName">Quel est votre prénom ?</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Votre prénom" required>
 
-    <!-- Champ : Prénom -->
-    <label for="firstName">Quel est votre prénom ?</label>
-    <input type="text" id="firstName" name="firstName" placeholder="Votre prénom" required>
+                <label for="lastName">Quel est votre nom ?</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Votre nom de famille" required>
 
-    <!-- Champ : Nom de famille -->
-    <label for="lastName">Quel est votre nom ?</label>
-    <input type="text" id="lastName" name="lastName" placeholder="Votre nom de famille" required>
+                <label for="birthDate">Quelle est votre date de naissance ?</label>
+                <input type="date" id="birthDate" name="birthDate" required>
 
-    <!-- Champ : Date de naissance -->
-    <label for="birthDate">Quelle est votre date de naissance ?</label>
-    <input type="date" id="birthDate" name="birthDate" required>
+                <label for="phoneNumber">Quel est votre numéro de téléphone ?</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Exemple : +33 6 12 34 56 78" pattern="[+]*[0-9]{1,4}[\s.-]?[0-9]{1,14}" required>
 
-    <!-- Champ : Numéro de téléphone -->
-    <label for="phoneNumber">Quel est votre numéro de téléphone ?</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Exemple : +33 6 12 34 56 78" pattern="[+]*[0-9]{1,4}[\s.-]?[0-9]{1,14}" required>
+                <label for="address">Quelle est votre adresse exacte ?</label>
+                <input type="text" id="address" name="address" placeholder="Adresse complète" required>
 
-    <!-- Champ : Adresse -->
-    <label for="address">Quelle est votre adresse exacte ?</label>
-    <input type="text" id="address" name="address" placeholder="Adresse complète" required>
+                <label for="description">Décrivez votre projet</label>
+                <textarea id="description" name="description" rows="5" placeholder="Expliquez en quoi consiste votre projet" required></textarea>
 
-    <!-- Champ : Description du projet -->
-    <label for="description">Décrivez votre projet</label>
-    <textarea id="description" name="description" rows="5" placeholder="Expliquez en quoi consiste votre projet" required></textarea>
-
-    <!-- Bouton suivant -->
-    <button type="button" class="next-btn">Suivant</button>
-    
-</div>
-
-
-           
+                <button type="button" class="next-btn">Suivant</button>
+            </div>
 
             <!-- Étape 3 -->
             <div class="step" id="step3">
@@ -266,97 +254,40 @@
                 </div>
             </div>
 
-            <!-- Étape 4 -->
+            <!-- Étape finale -->
             <div class="step" id="step4">
-                <label for="impact">Quel impact aura votre projet ?</label>
-                <textarea id="impact" name="impact" rows="4" placeholder="Décrivez l'impact social, environnemental ou autre de votre projet" required></textarea>
-                <div class="buttons">
-                    <button type="button" class="prev-btn">Précédent</button>
-                    <button type="button" class="next-btn">Suivant</button>
-                </div>
-            </div>
-
-            <!-- Étape 5 -->
-            <div class="step" id="step5">
-                <label for="totalBudget">Quel est le budget total de votre projet ?</label>
-                <input type="number" id="totalBudget" name="totalBudget" placeholder="Budget total en euros" required>
-                <label for="subventionAmount">Quel montant de subvention souhaitez-vous ?</label>
-                <input type="number" id="subventionAmount" name="subventionAmount" placeholder="Montant demandé en euros" required>
-                <label for="personalContribution">Quel est votre apport personnel (si applicable) ?</label>
-                <input type="number" id="personalContribution" name="personalContribution" placeholder="Montant en euros" required>
-                <div class="buttons">
-                    <button type="button" class="prev-btn">Précédent</button>
-                    <button type="submit">Soumettre la demande</button>
+                <div class="success-message">
+                    <h2>Félicitations !</h2>
+                    <p>Votre demande de subvention a été soumise avec succès. Nous reviendrons vers vous dans les plus brefs délais.</p>
+                    <button type="button" onclick="window.location.reload();">Soumettre une nouvelle demande</button>
                 </div>
             </div>
         </form>
-
-        <!-- Message de succès -->
-        <div id="successMessage" class="success-message hidden">
-            <h2>Félicitations, votre demande a été soumise avec succès !</h2>
-            <p>Merci d'avoir complété votre demande de subvention. Vous pouvez maintenant soumettre vos documents supplémentaires.</p>
-            <button id="submitDocumentsButton">Soumettre des documents</button>
-        </div>
     </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const steps = document.querySelectorAll('.step');
-            const nextButtons = document.querySelectorAll('.next-btn');
-            const prevButtons = document.querySelectorAll('.prev-btn');
-            const form = document.getElementById('subventionForm');
-            const successMessage = document.getElementById('successMessage');
-            const submitDocumentsButton = document.getElementById('submitDocumentsButton');
-            let currentStep = 0;
-    
-            // Fonction pour valider les champs du formulaire pour chaque étape
-            function validateStep(step) {
-                const inputs = steps[step].querySelectorAll('input, select, textarea');
-                let isValid = true;
-                inputs.forEach(input => {
-                    if (!input.checkValidity()) {
-                        input.reportValidity();
-                        isValid = false;
-                    }
-                });
-                return isValid;
-            }
-    
-            // Gérer les boutons "Suivant"
-            nextButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    if (validateStep(currentStep)) {
-                        steps[currentStep].classList.remove('active');
-                        currentStep++;
-                        if (currentStep < steps.length) {
-                            steps[currentStep].classList.add('active');
-                        }
-                    }
-                });
+        const nextButtons = document.querySelectorAll('.next-btn');
+        const prevButtons = document.querySelectorAll('.prev-btn');
+        const steps = document.querySelectorAll('.step');
+        let currentStep = 0;
+
+        nextButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (currentStep < steps.length - 1) {
+                    steps[currentStep].classList.remove('active');
+                    currentStep++;
+                    steps[currentStep].classList.add('active');
+                }
             });
-    
-            // Gérer les boutons "Précédent"
-            prevButtons.forEach(button => {
-                button.addEventListener('click', () => {
+        });
+
+        prevButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (currentStep > 0) {
                     steps[currentStep].classList.remove('active');
                     currentStep--;
                     steps[currentStep].classList.add('active');
-                });
-            });
-    
-            // Gestion de la soumission du formulaire
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();  // Empêche la soumission classique du formulaire
-    
-                // Valider la dernière étape avant la soumission
-                if (validateStep(currentStep)) {
-                    form.classList.add('hidden');  // Masquer le formulaire
-                    successMessage.classList.remove('hidden');  // Afficher le message de succès
                 }
-            });
-    
-            // Redirection vers la page de soumission de documents
-            submitDocumentsButton.addEventListener('click', function() {
-                window.location.href = 'form-doc.html';
             });
         });
     </script>
