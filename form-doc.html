@@ -203,21 +203,21 @@
         <p>Contactez-nous : <a href="mailto:contact@financementplus.com">contact@financementplus.com</a></p>
     </footer>
 
-    <script>
-        document.getElementById('documentUploadForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Empêche la soumission classique du formulaire
+   <script>
+    document.getElementById('documentUploadForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche la soumission classique du formulaire
 
-            // Ici, vous pouvez ajouter la logique pour traiter le téléchargement des fichiers si nécessaire.
-            // Par exemple, vous pourriez envoyer les fichiers à un serveur via AJAX.
+        // Ici, vous pouvez ajouter la logique pour traiter le téléchargement des fichiers si nécessaire.
+        // Par exemple, vous pourriez envoyer les fichiers à un serveur via AJAX.
 
-              // Affiche le message de succès
-              document.getElementById('successMessage').style.display = 'block';
-            });
-    
-            // Redirection vers une autre page lorsque le bouton est cliqué
-            document.getElementById('redirectButton').addEventListener('click', function() {
+        // Affiche le message de succès
+        document.getElementById('successMessage').style.display = 'block';
+
+        // Redirection vers la page suivante après 2 secondes
+        setTimeout(function() {
             window.location.href = 'paiement-1.html'; // Remplacez par l'URL de la page suivante
-        });
-    </script>
+        }, 2000); // Attendre 2 secondes avant de rediriger
+    });
+</script>
 </body>
 </html>
