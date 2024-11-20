@@ -220,30 +220,40 @@
                 </select>
                 <button type="button" class="next-btn">Suivant</button>
             </div>
+            <!-- Étape 2 : Informations personnelles et projet -->
+<div class="step" id="step2">
 
-            <!-- Étape 2 -->
-            <div class="step" id="step2">
-                <label for="firstName">Quel est votre prénom ?</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Votre prénom" required>
+    <!-- Champ : Prénom -->
+    <label for="firstName">Quel est votre prénom ?</label>
+    <input type="text" id="firstName" name="firstName" placeholder="Votre prénom" required>
 
-                <label for="lastName">Quel est votre nom ?</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Votre nom de famille" required>
+    <!-- Champ : Nom de famille -->
+    <label for="lastName">Quel est votre nom ?</label>
+    <input type="text" id="lastName" name="lastName" placeholder="Votre nom de famille" required>
 
-                <label for="birthDate">Quelle est votre date de naissance ?</label>
-                <input type="date" id="birthDate" name="birthDate" required>
+    <!-- Champ : Date de naissance -->
+    <label for="birthDate">Quelle est votre date de naissance ?</label>
+    <input type="date" id="birthDate" name="birthDate" required>
 
-                <label for="phoneNumber">Quel est votre numéro de téléphone ?</label>
-                <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Exemple : +33 6 12 34 56 78" pattern="[+]*[0-9]{1,4}[\s.-]?[0-9]{1,14}" required>
+    <!-- Champ : Numéro de téléphone -->
+    <label for="phoneNumber">Quel est votre numéro de téléphone ?</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Exemple : +33 6 12 34 56 78" pattern="[+]*[0-9]{1,4}[\s.-]?[0-9]{1,14}" required>
 
-                <label for="address">Quelle est votre adresse exacte ?</label>
-                <input type="text" id="address" name="address" placeholder="Adresse complète" required>
+    <!-- Champ : Adresse -->
+    <label for="address">Quelle est votre adresse exacte ?</label>
+    <input type="text" id="address" name="address" placeholder="Adresse complète" required>
+
+    <!-- Champ : Description du projet -->
+    <label for="description">Décrivez votre projet</label>
+    <textarea id="description" name="description" rows="5" placeholder="Expliquez en quoi consiste votre projet" required></textarea>
+
+    <!-- Bouton suivant -->
+    <button type="button" class="next-btn">Suivant</button>
+    
+</div>
 
 
-            
-                <label for="description">Décrivez votre projet</label>
-                <textarea id="description" name="description" rows="5" placeholder="Expliquez en quoi consiste votre projet" required></textarea>
-                <button type="button" class="next-btn">Suivant</button>
-            </div>
+           
 
             <!-- Étape 3 -->
             <div class="step" id="step3">
