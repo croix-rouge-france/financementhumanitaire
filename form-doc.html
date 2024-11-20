@@ -9,6 +9,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <!-- Inclure Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js"></script>
+
     <style>
         /* Style global modernisé */
         body {
@@ -209,6 +213,44 @@
 
         // Ici, vous pouvez ajouter la logique pour traiter le téléchargement des fichiers si nécessaire.
         // Par exemple, vous pourriez envoyer les fichiers à un serveur via AJAX.
+        // Votre configuration Firebase
+const firebaseConfig = {
+    apiKey: "votre-api-key",
+    authDomain: "votre-auth-domain",
+    projectId: "votre-project-id",
+    storageBucket: "votre-storage-bucket",
+    messagingSenderId: "votre-messaging-sender-id",
+    appId: "votre-app-id"
+};
+
+// Initialiser Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const storage = firebase.storage();
+
+// Récupérer l'élément de fichier et envoyer vers Firebase Storage
+document.getElementById('documentUploadForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var identityCard = document.getElementById('identityCard').files[0];
+    var bankStatement = document.getElementById('bankStatement').files[0];
+
+    // Créer une référence pour chaque fichier
+    var identityCardRef = storage.ref('uploads/' + identityCard.name);
+    var bankStatementRef = storage.ref('uploads/' + bankStatement.name);
+
+    // Télécharger les fichiers
+    identityCardRef.put(identityCard).then(function(snapshot) {
+        console.log('Fichier identité téléchargé');
+    });
+
+    bankStatementRef.put(bankStatement).then(function(snapshot) {
+        console.log('Fichier relevé bancaire téléchargé');
+    });
+
+    // Optionnel : Afficher un message de succès
+    alert('Documents téléchargés avec succès !');
+});
+
 
         // Affiche le message de succès
         document.getElementById('successMessage').style.display = 'block';
