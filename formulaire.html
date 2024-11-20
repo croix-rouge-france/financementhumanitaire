@@ -252,14 +252,15 @@ input:focus, select:focus, textarea:focus {
                 </div>
             </div>
 
-            <!-- Étape finale -->
-            <div class="step" id="step4">
-                <div class="success-message">
-                    <h2>Félicitations !</h2>
-                    <p>Votre demande de subvention a été soumise avec succès. Nous reviendrons vers vous dans les plus brefs délais.</p>
-                    <button type="button" onclick="window.location.reload();">Soumettre une nouvelle demande</button>
-                </div>
-            </div>
+            <!-- Étape finale (redirection vers la soumission des documents) -->
+<div class="step" id="step4">
+    <div class="success-message">
+        <h2>Félicitations !</h2>
+        <p>Votre demande de subvention a été soumise avec succès. Vous pouvez maintenant télécharger vos documents.</p>
+        <button type="button" onclick="window.location.href = 'form-doc.html';">Télécharger vos documents</button>
+    </div>
+</div>
+
         </form>
     </div>
 
