@@ -10,8 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <!-- Inclure Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js"></script>
+    <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
 
     <style>
         /* Style global modernisé */
@@ -213,43 +212,48 @@
 
         // Ici, vous pouvez ajouter la logique pour traiter le téléchargement des fichiers si nécessaire.
         // Par exemple, vous pourriez envoyer les fichiers à un serveur via AJAX.
-        // Votre configuration Firebase
-const firebaseConfig = {
-    apiKey: "votre-api-key",
-    authDomain: "votre-auth-domain",
-    projectId: "votre-project-id",
-    storageBucket: "votre-storage-bucket",
-    messagingSenderId: "votre-messaging-sender-id",
-    appId: "votre-app-id"
-};
+        import { v2 as cloudinary } from 'cloudinary';
 
-// Initialiser Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const storage = firebase.storage();
+(async function() {
 
-// Récupérer l'élément de fichier et envoyer vers Firebase Storage
-document.getElementById('documentUploadForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    var identityCard = document.getElementById('identityCard').files[0];
-    var bankStatement = document.getElementById('bankStatement').files[0];
-
-    // Créer une référence pour chaque fichier
-    var identityCardRef = storage.ref('uploads/' + identityCard.name);
-    var bankStatementRef = storage.ref('uploads/' + bankStatement.name);
-
-    // Télécharger les fichiers
-    identityCardRef.put(identityCard).then(function(snapshot) {
-        console.log('Fichier identité téléchargé');
+    // Configuration
+    cloudinary.config({ 
+        cloud_name: 'dimcrnicq', 
+        api_key: '552858329624221', 
+        api_secret: 'SoTlSmB7KEl05Nk7zI64vOKGcug' // Click 'View API Keys' above to copy your API secret
     });
-
-    bankStatementRef.put(bankStatement).then(function(snapshot) {
-        console.log('Fichier relevé bancaire téléchargé');
+    
+    // Upload an image
+     const uploadResult = await cloudinary.uploader
+       .upload(
+           'https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg', {
+               public_id: 'shoes',
+           }
+       )
+       .catch((error) => {
+           console.log(error);
+       });
+    
+    console.log(uploadResult);
+    
+    // Optimize delivery by resizing and applying auto-format and auto-quality
+    const optimizeUrl = cloudinary.url('shoes', {
+        fetch_format: 'auto',
+        quality: 'auto'
     });
-
-    // Optionnel : Afficher un message de succès
-    alert('Documents téléchargés avec succès !');
-});
+    
+    console.log(optimizeUrl);
+    
+    // Transform the image: auto-crop to square aspect_ratio
+    const autoCropUrl = cloudinary.url('shoes', {
+        crop: 'auto',
+        gravity: 'auto',
+        width: 500,
+        height: 500,
+    });
+    
+    console.log(autoCropUrl);    
+})();
 
 
         // Affiche le message de succès
